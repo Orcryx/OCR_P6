@@ -3,11 +3,13 @@ Prérequis :
 
     Environnement Node.js
     Angular CLI
+    Installer le package 'bcrypt'
     Installer le package 'Express'
+    Install le package 'jsonwebtoken'
     Installer le package 'Mongoose'
+    Installer le package 'Mongoose-unique-validator'
     Installer le package 'Multer'
-
-
+   
 
 Pour démarrer le côté frontend, se placer dans le dossier "frontend" et installer le package :
 

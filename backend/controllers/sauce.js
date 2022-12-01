@@ -3,6 +3,7 @@ const sauce = require('../models/sauce');
 
 //Importer la méthode fs
 const fs = require('fs');
+const { error } = require('console');
 
 //Coeur du code (ou logique métier) de la fonction POST 
 exports.createSauce = (req, res, next) => {
@@ -81,4 +82,12 @@ exports.displaySauce = (req, res, next) =>{
     sauce.find() // Pour trouver tout ce qu'il y a dans la base dans la collection sauce / "sauces" de mongoDb et tous les retourner
       .then(sauce => res.status(200).json(sauce)) // retourne l'objet qui se trouve dans la collection "sauces" de mongoDB
       .catch(error => res.status(400).json({error}));
+};
+
+//Coeyr du code de la fonction POST
+/** Permettre à l'utilisateur de poster une note avec dislike/like */ 
+exports.noteSauce=(req, res, next) =>{
+  sauce.findOne({ _id: req.params.id}) // findOne dans notre modèle sauce cherche un seul objet + on lui passe un objet de comparaison qui est l'_id de la base de données = au paramètre de la requête
+    .then()
+    .catch(error => res.status(404).json({error}));
 };

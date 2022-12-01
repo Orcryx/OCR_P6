@@ -16,7 +16,6 @@ const sauceControllers = require('../controllers/sauce')
 //Les routes, le code de contrôle se trouve dans controllers/sauce.js
 router.post('/', auth, multer, sauceControllers.createSauce); // On ne met pas les parenthèse à la fonction, car on l'applique a la route mais on ne l'applique pas
 
-
 router.put('/:id', auth, multer, sauceControllers.updateSauce); // On ne met pas les parenthèse à la fonction, car on l'applique a la route mais on ne l'applique pas
 
 router.delete('/:id', auth, multer, sauceControllers.deleteSauce); // On ne met pas les parenthèse à la fonction, car on l'applique a la route mais on ne l'applique pas
@@ -25,4 +24,5 @@ router.get('/:id', auth, sauceControllers.displayIDSauce); // On ne met pas les 
   
 router.get('/', auth, sauceControllers.displaySauce); // On ne met pas les parenthèse à la fonction, car on l'applique a la route mais on ne l'applique pas
   
+router.post('/:id/like', auth, sauceControllers.noteSauce);
 module.exports = router;
