@@ -84,7 +84,7 @@ exports.displaySauce = (req, res, next) =>{
       .catch(error => res.status(400).json({error}));
 };
 
-//Coeyr du code de la fonction POST
+//Coeur du code de la fonction POST
 /** Permettre à l'utilisateur de poster une note avec dislike/like */ 
 exports.noteSauce=(req, res, next) =>{
   sauce.findOne({ _id: req.params.id}) // findOne dans notre modèle sauce cherche un seul objet + on lui passe un objet de comparaison qui est l'_id de la base de données = au paramètre de la requête
@@ -122,6 +122,7 @@ exports.noteSauce=(req, res, next) =>{
                 .then(()=> res.status(201).json({message:'Remove user like.'}))
                 .catch(error => res.status(400).json({error}));
             }
+            //Annuler un dislike en fonction de userId
             if (noteSaute.usersDisliked.includes(req.body.userId)){
               sauce.updateOne({ _id: req.params.id},
                 {
