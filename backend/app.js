@@ -3,11 +3,11 @@ const mongoose = require('mongoose');
 // Importer express (qui a été installé dans le paclage)
 const express = require('express');
 //Importer path du server pour créer des chemins vers des dossiers interne du projet
-////const path = require('path');
+const path = require('path');
 // importer le router qui se trouve dans le fichier sauce.js
 const sauceRoutes = require('./routes/sauce');
 //importer le router qui se trouve dans le fichier user.js
-////const userRoutes = require('./routes/user');
+const userRoutes = require('./routes/user');
 
 //server Mongodb - a mettre en dessous de la déclaration de la constante app
 mongoose.connect('mongodb+srv://SuperSauce:6epOKSoHMM1Kxqg2@piiquante.oswwmhv.mongodb.net/?retryWrites=true&w=majority',
@@ -33,8 +33,8 @@ app.use(express.json());
 //donner le chemin  API qui sera utiliser par le router pour les routes qui sont dans le fichier sauce.js de controllers
 app.use('/api/sauce', sauceRoutes);
 //donner le chemin de l'API qui sera utiliser pour (enregistrer) utiliser les routes qui sont dans le fichier user.js
-////app.use('/api/auth', userRoutes);
+app.use('/api/auth', userRoutes);
 // Ajouter une route pour récupérer les images du projet utilisée par le serveur / BDD et préparer un chemin = chemin + nom image
-////app.use('/images', express.static(path.join(__dirname,'images')));
+app.use('/images', express.static(path.join(__dirname,'images')));
 //exporter l'application app pour pouvoir y accéder depuis les autres fichier du projet (comme le serveur node)
 module.exports = app;
