@@ -88,6 +88,30 @@ exports.displaySauce = (req, res, next) =>{
 /** Permettre à l'utilisateur de poster une note avec dislike/like */ 
 exports.noteSauce=(req, res, next) =>{
   sauce.findOne({ _id: req.params.id}) // findOne dans notre modèle sauce cherche un seul objet + on lui passe un objet de comparaison qui est l'_id de la base de données = au paramètre de la requête
-    .then()
+    .then(noteSaute => {
+        switch (req.body.like){
+          //Si l'utilisateur aime la sauce ET que l'userId de la requête n'est pas présent dans la liste des ID du tableau usersLiked de MongoDB
+          case 1:
+            if (!noteSaute.usersLiked.includes(req.body.userId) && req.body.like === 1){
+              sauce.updateOne({ _id: req.params.id},
+                {
+                  $inc: {likes:1}, $push: {usersLiked: req.body.userId}
+                })
+                .then(()=> res.status(201).json({message:'Add a like.'}))
+                .catch(error => res.status(400).json({error}));
+            }
+          break;
+          // Si l'utilisateur n'aime pas la sauce ET que l'userId de la requête n'est pas présent dans la liste des ID du tableau userDisliked de MongoDB
+          case -1:
+            if (!noteSaute.usersDisliked.includes(req.body.userId) && req.body.like === -1){
+              sauce.updateOne({ _id: req.params.id},
+                {
+                  $inc: {dislikes:1}, $push: {usersDisliked: req.body.userId}
+                })
+                .then(()=> res.status(201).json({message:'Add a dislike.'}))
+                .catch(error => res.status(400).json({error}));
+            }
+        } // fin du switch
+    })
     .catch(error => res.status(404).json({error}));
 };
