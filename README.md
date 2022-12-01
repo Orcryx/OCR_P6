@@ -17,7 +17,7 @@ npm install
 
 Puis executer cette commande pour lancer le serveur du frontend :
 
-npm run start
+npm run start || http://localhost:4200/
 
 Pour le côté back-end, se placer dans le dossier "backend" et exécuter :
 
