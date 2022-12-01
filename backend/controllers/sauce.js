@@ -113,7 +113,23 @@ exports.noteSauce=(req, res, next) =>{
             }
           break;
           //Annuler un like en fonction de userId
-          
+          case 0:
+            if (noteSaute.usersLiked.includes(req.body.userId)){
+              sauce.updateOne({ _id: req.params.id},
+                {
+                  $inc: {likes:-1}, $pull: {usersLiked: req.body.userId}
+                })
+                .then(()=> res.status(201).json({message:'Remove user like.'}))
+                .catch(error => res.status(400).json({error}));
+            }
+            if (noteSaute.usersDisliked.includes(req.body.userId)){
+              sauce.updateOne({ _id: req.params.id},
+                {
+                  $inc: {dislikes:-1}, $pull: {usersDisliked: req.body.userId}
+                })
+                .then(()=> res.status(201).json({message:'Remove user dislike.'}))
+                .catch(error => res.status(400).json({error}));
+            }
         } // fin du switch
     })
     .catch(error => res.status(404).json({error}));
