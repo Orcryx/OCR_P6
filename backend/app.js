@@ -31,7 +31,7 @@ app.use((req, res, next) => {
 app.use(express.json());
 
 //donner le chemin  API qui sera utiliser par le router pour les routes qui sont dans le fichier sauce.js de controllers
-app.use('/api/sauce', sauceRoutes);
+app.use('/api/sauces', sauceRoutes);
 //donner le chemin de l'API qui sera utiliser pour (enregistrer) utiliser les routes qui sont dans le fichier user.js
 app.use('/api/auth', userRoutes);
 // Ajouter une route pour récupérer les images du projet utilisée par le serveur / BDD et préparer un chemin = chemin + nom image
