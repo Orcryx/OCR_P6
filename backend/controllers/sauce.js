@@ -1,9 +1,7 @@
 //Pour importer le fichier sauce(du dossier models) pour pouvoir utiliser notre nouveau modèle Mongoose dans l'application 
 const sauce = require('../models/sauce');
-
 //Importer la méthode fs
 const fs = require('fs');
-const { error } = require('console');
 
 //Coeur du code (ou logique métier) de la fonction POST 
 exports.createSauce = (req, res, next) => {
