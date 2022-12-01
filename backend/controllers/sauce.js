@@ -111,6 +111,9 @@ exports.noteSauce=(req, res, next) =>{
                 .then(()=> res.status(201).json({message:'Add a dislike.'}))
                 .catch(error => res.status(400).json({error}));
             }
+          break;
+          //Annuler un like en fonction de userId
+          
         } // fin du switch
     })
     .catch(error => res.status(404).json({error}));
