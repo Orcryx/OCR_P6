@@ -16,30 +16,18 @@ exports.createSauce = (req, res, next) => {
     imageUrl: `${req.protocol}://${req.get('host')}/images/${req.file.filename}` // Le chemin du ficher devient dossier du projet qui stock l'image + nom du fichier
   });
   Sauce.save()
-    .then(() => {res.status(201).json({message:'Sauce enregistré.'})})
+    .then(() => {res.status(201).json({message:'Add sauce.'})})
     .catch(error => {res.status(400).json[{error}]});
 };
 
 //Coeur du code de la fonction PUT
 exports.updateSauce = (req, res, next) => {
-    const sauceObject = req.file ? {
-      ...JSON.parse(req.body.sauce),
+    const sauceObject = req.file ? { //Vérifier si une image a été téléchargée avec la sauce
+      ...JSON.parse(req.body.sauce), // Si Oui, récupérer les données au format JSON
       imageUrl: `${req.protocol}://${req.get('host')}/images/${req.file.filename}`
-    } : {...req.body};
-// par sécurité on supprimer le userId on utilisera le token
-    delete sauceObject.userId;
-    sauce.findOne({_id: req.params.id}) // On va vérifier que c'est bien un objet de l'utilisateur qui fait la requête, si oui then sinon catch, donc on récupère L'iD
-      .then((sauce)=> {
-        // si l'USERid de l'utilisateur est différent de l'userId qui est dans le token d'authentification
-        if(sauce.userId != req.auth.userId) {
-          console.log(sauce.userId);
-          res.status(401).json({message:'Non-autorisé'});
-        } else {
-          sauce.updateOne({_id: req.params.id}, {...sauceObject, _id: req.params.id})
-            .then(() => res.status(200).json({message:'Sauce Modifiée.'}))
-            .catch(error => res.status(401).json({error}));
-        }
-      })
+    } : {...req.body}; //Sinon, modifier le contenu de la sauce
+    sauce.updateOne({ _id: req.params.id}, { ...sauceObject, _id: req.params.id})
+      .then(() => res.status(200).json({message:'Modified sauce.'}))
       .catch((error)=> {res.status(400).json({error});
     });
 };
