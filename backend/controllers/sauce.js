@@ -6,8 +6,9 @@ const fs = require('fs');
 //Coeur du code (ou logique métier) de la fonction POST 
 exports.createSauce = (req, res, next) => {
   //Parser l'objet requete car envoyer sous forme json en chaine de caractères
+  console.log(JSON.parse(req.body));
   const sauceObject = JSON.parse(req.body.sauce);
-  delete sauceObject._id;
+  delete sauceObject._id; // Retirer l'id pour permettre la création par MongDB
   // Pour protéger la base de données on va utilisé un token
   delete sauceObject._userId;
   const Sauce = new sauce({
@@ -37,7 +38,7 @@ exports.deleteSauce =(req, res, next) => {
   sauce.findOne({ _id: req.params.id})
     .then(sauce => {
       if (sauce.userId != req.auth.userId){
-        res.status(401).json({message: 'Action non authorisée'});
+        res.status(401).json({message: 'Unauthorized '});
       } else {
         // supprimer l'objet de la BDD et l'image dans le projet
         const filename = sauce.imageUrl.split('/images/')[1];
