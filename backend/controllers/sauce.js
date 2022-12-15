@@ -6,7 +6,6 @@ const fs = require('fs');
 //Coeur du code (ou logique métier) de la fonction POST 
 exports.createSauce = (req, res, next) => {
   //Parser l'objet requete car envoyer sous forme json en chaine de caractères
-  console.log(JSON.parse(req.body));
   const sauceObject = JSON.parse(req.body.sauce);
   delete sauceObject._id; // Retirer l'id pour permettre la création par MongDB
   // Pour protéger la base de données on va utilisé un token
