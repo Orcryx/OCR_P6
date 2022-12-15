@@ -10,15 +10,17 @@ Prérequis :
     Installer le package 'Mongoose-unique-validator'
     Installer le package 'Multer'
    
+Démarrage du projet 
 
-Pour démarrer le côté frontend, se placer dans le dossier "frontend" et installer le package :
+- Etape 1 -
+1.Se placer dans le dossier frontend : cd frontend
+2.Installer les modules (voir section "Prérequis") : npm install
+3.Démarrer le projet : npm run start
 
-npm install
+- Etape 2 - 
+1.Se placer dans le dossier backend : cd backend
+2.Installer les modules (voir section "Prérequis") : npm install "/module/"
+3.Démarrer le serveur : node server
 
-Puis executer cette commande pour lancer le serveur du frontend :
-
-npm run start || http://localhost:4200/
-
-Pour le côté back-end, se placer dans le dossier "backend" et exécuter :
-
-node server
+- Etape 3 - 
+Ouvrir le projet dans votre navigateur : http://localhost:4200/
