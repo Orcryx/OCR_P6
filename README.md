@@ -15,7 +15,7 @@ Démarrage du projet
 - Etape 1 -
 1.Se placer dans le dossier frontend : cd frontend
 2.Installer les modules (voir section "Prérequis") : npm install
-3.Démarrer le projet : npm run start
+3.Démarrer le projet : npm start
 
 - Etape 2 - 
 1.Se placer dans le dossier backend : cd backend
