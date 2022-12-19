@@ -20,7 +20,7 @@ Démarrage du projet
 - Etape 2 - 
 1.Se placer dans le dossier backend : cd backend
 2.Installer les modules (voir section "Prérequis") : npm install "/module/"
-4.Créer un dossier "images" dans le backend
+4.Créer un dossier "images" dans le backend (si clone du repo)
 3.Démarrer le serveur : node server
 
 - Etape 3 - 

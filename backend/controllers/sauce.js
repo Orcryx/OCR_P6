@@ -7,6 +7,7 @@ const fs = require('fs');
 exports.createSauce = (req, res, next) => {
   //Parser l'objet requete car envoyer sous forme json en chaine de caractères
   const sauceObject = JSON.parse(req.body.sauce);
+  console.log(sauceObject);
   delete sauceObject._id; // Retirer l'id pour permettre la création par MongDB
   // Pour protéger la base de données on va utilisé un token
   delete sauceObject._userId;
