@@ -25,3 +25,6 @@ Démarrage du projet
 
 - Etape 3 - 
 Ouvrir le projet dans votre navigateur : http://localhost:4200/
+
+
+![image](https://user-images.githubusercontent.com/108926881/235453227-f95774cb-0264-4ebb-bdf8-875e0218ee2e.png)
