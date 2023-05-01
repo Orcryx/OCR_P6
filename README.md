@@ -27,4 +27,8 @@ Démarrage du projet
 Ouvrir le projet dans votre navigateur : http://localhost:4200/
 
 
+![image](https://user-images.githubusercontent.com/108926881/235457710-686ff588-2625-42e1-b868-aa17729d5192.png)
 ![image](https://user-images.githubusercontent.com/108926881/235453227-f95774cb-0264-4ebb-bdf8-875e0218ee2e.png)
+![image](https://user-images.githubusercontent.com/108926881/235457826-f4772070-f809-4437-b5e0-2f275db23f23.png)
+
+
