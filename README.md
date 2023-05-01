@@ -1,4 +1,4 @@
-# OCR_P6
+# OCR_P6 PIIQUANTE
 Prérequis :
 
     Environnement Node.js
